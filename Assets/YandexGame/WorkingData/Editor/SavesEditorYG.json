@@ -1,0 +1,17 @@
+{
+    "idSave": 732,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "coins": 1020,
+    "addCoins": 15,
+    "indexLamp": 0,
+    "key": 0
+}

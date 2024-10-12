@@ -1,23 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChangeLamp : MonoBehaviour
 {
-    [SerializeField] private List<int> costs = new();
-    [SerializeField] private List<bool> enableFlag = new();
+    [SerializeField] public List<int> costs = new();
+    [SerializeField] public List<bool> enableFlag = new();
 
     [SerializeField] private List<GameObject> lamps = new();
-    private int indexLamp = 0;
-
-    [SerializeField] private TouchControl touchControl;
+    public int indexLamp = 0;
+   
     [SerializeField] private Button rightBut;
     [SerializeField] private Button leftBut;
     [SerializeField] private GameObject baseLamp;
     [SerializeField] private Text costLabel;
-    [SerializeField] private GameObject buyButton;
+    [SerializeField] public GameObject buyButton;
 
     private void Start()
     {
@@ -83,13 +80,4 @@ public class ChangeLamp : MonoBehaviour
         Change();
     }
 
-    public void BuyButton()
-    {
-        if (touchControl.coins >= costs[indexLamp])
-        {
-            touchControl.coins -= costs[indexLamp];
-            enableFlag[indexLamp] = true;
-            buyButton.SetActive(false);
-        }
-    }
 }

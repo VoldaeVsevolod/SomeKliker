@@ -5,14 +5,12 @@ using YG;
 
 public class TouchControl : MonoBehaviour
 {
-
     [SerializeField] private Transform lamp;
     [SerializeField] private Image lampImage;
     [SerializeField] private Image baseLampImage;
     [SerializeField] private Text coinsText;
     [SerializeField] private Text textBuyButton;
     [SerializeField] private GameObject buyButton;
-    [SerializeField] public List<List<GameObject>> defaultList = new();
 
     public int coins = 1;
     public int addCoins = 15;
@@ -68,6 +66,6 @@ public class TouchControl : MonoBehaviour
 
     public void Update()
     {
-        coinsText.text = coins.ToString();
+        coinsText.text = YandexGame.savesData.coins.ToString();
     }
 }

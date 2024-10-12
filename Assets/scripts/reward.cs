@@ -6,7 +6,8 @@ using YG;
 public class Reward : MonoBehaviour
 {
     public YandexGame sdk;
-    public TouchControl tControl;
+    [SerializeField] private lampsControl lampsControl;
+    [SerializeField] private ChangeLamp changeLamp;
     public Button but;
     public int countDown = 5;
 
@@ -17,8 +18,8 @@ public class Reward : MonoBehaviour
 
     public void RewardedAdCul()
     {
-        tControl.addCoins *= 2;
-        Debug.Log(tControl.addCoins);
+        lampsControl.lampsList[changeLamp.indexLamp].addCoins *= 2;
+        Debug.Log(lampsControl.lampsList[changeLamp.indexLamp].addCoins);
         StartCoroutine(ButtonCooldown());
     }
 

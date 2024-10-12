@@ -8,8 +8,6 @@ public class Reward : MonoBehaviour
     public YandexGame sdk;
     public TouchControl tControl;
     public Button but;
-    //public GameObject countDownObject;
-    //public Text countDownText;
     public int countDown = 5;
 
     public void RewardedAd()
@@ -27,10 +25,8 @@ public class Reward : MonoBehaviour
     IEnumerator ButtonCooldown()
     {
         but.interactable = false;
-        //countDownObject.SetActive(true);
         yield return new WaitForSeconds(30);
         but.interactable = true;
-        //countDownObject.SetActive(false);
     }
 }
 

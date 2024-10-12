@@ -34,20 +34,9 @@ public class ChangeLamp : MonoBehaviour
         lamps[indexLamp].GetComponent<BoxCollider>().enabled = true;
     }
 
-    public void RightClick()
+    private void Change() 
     {
-        lamps[indexLamp].SetActive(false);
-
-        if (indexLamp < lamps.Count-1)
-        {
-            indexLamp++;
-        }
-        else
-        {
-            indexLamp = 0;
-        }
-
-        lamps[indexLamp].SetActive(true);
+    	lamps[indexLamp].SetActive(true);
 
         if (!enableFlag[indexLamp])
         {
@@ -63,8 +52,21 @@ public class ChangeLamp : MonoBehaviour
             lamps[indexLamp].GetComponent<BoxCollider>().enabled = true;
             baseLamp.GetComponent<Image>().color = Color.white;
         }
+    }
 
+    public void RightClick()
+    {
+        lamps[indexLamp].SetActive(false);
 
+        if (indexLamp < lamps.Count-1)
+        {
+            indexLamp++;
+        }
+        else
+        {
+            indexLamp = 0;
+        }
+        Change();
     }
 
     public void LeftClick()
@@ -78,23 +80,7 @@ public class ChangeLamp : MonoBehaviour
         {
             indexLamp = lamps.Count-1;
         }
-
-        lamps[indexLamp].SetActive(true);
-
-        if (!enableFlag[indexLamp])
-        {
-            buyButton.SetActive(true);
-            costLabel.text = costs[indexLamp].ToString();
-            lamps[indexLamp].GetComponent<Image>().color = Color.black;
-            baseLamp.GetComponent<Image>().color = Color.black;
-        }
-        else
-        {
-            buyButton.SetActive(false);
-            lamps[indexLamp].GetComponent<TouchControl>().enabled = true;
-            lamps[indexLamp].GetComponent<BoxCollider>().enabled = true;
-            baseLamp.GetComponent<Image>().color = Color.white;
-        }
+        Change();
     }
 
     public void BuyButton()

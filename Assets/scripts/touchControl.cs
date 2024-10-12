@@ -12,6 +12,7 @@ public class TouchControl : MonoBehaviour
     [SerializeField] private Text coinsText;
     [SerializeField] private Text textBuyButton;
     [SerializeField] private GameObject buyButton;
+    [SerializeField] public List<List<GameObject>> defaultList = new();
 
     public int coins = 1;
     public int addCoins = 15;

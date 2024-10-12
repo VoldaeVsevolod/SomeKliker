@@ -6,12 +6,13 @@ using YG;
 public class TouchControl : MonoBehaviour
 {
     [SerializeField] private Transform lamp;
-    [SerializeField] private Image lampImage;
-    [SerializeField] private Image baseLampImage;
+    [SerializeField] public Image lampImage;
+    [SerializeField] public Image baseLampImage;
     [SerializeField] private Text coinsText;
     [SerializeField] private Text textBuyButton;
     [SerializeField] private GameObject buyButton;
 
+    private int clickNum;
     public int coins = 1;
     public int addCoins = 15;
     private bool flag = true;
@@ -61,11 +62,17 @@ public class TouchControl : MonoBehaviour
             flag = true;
         }
         coins += addCoins;
-        MySave();
+        clickNum++;
     }
 
     public void Update()
     {
-        coinsText.text = YandexGame.savesData.coins.ToString();
+        if(clickNum == 5)
+        {
+            MySave();
+            clickNum = 0;
+        }
+
+        coinsText.text = coins.ToString();
     }
 }

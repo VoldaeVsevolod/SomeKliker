@@ -12,8 +12,18 @@ public class lampsControl : MonoBehaviour
     {
         if (YandexGame.savesData.coins >= lampsList[changeLamp.indexLamp].coins)
         {
+            //Отнимаем монеты
             YandexGame.savesData.coins -= changeLamp.costs[changeLamp.indexLamp];
+
+            //Разблокируем лампу
+            YandexGame.savesData.openLevels[changeLamp.indexLamp] = true;
             changeLamp.enableFlag[changeLamp.indexLamp] = true;
+            lampsList[changeLamp.indexLamp].lampImage.color = Color.white;
+            lampsList[changeLamp.indexLamp].baseLampImage.color = Color.white;
+            changeLamp.lamps[changeLamp.indexLamp].GetComponent<TouchControl>().enabled = true;
+            changeLamp.lamps[changeLamp.indexLamp].GetComponent<BoxCollider>().enabled = true;
+
+            //Удаляем кнопку покупки
             buyButton.SetActive(false);
         }
     }

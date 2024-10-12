@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class ChangeLamp : MonoBehaviour
 {
     [SerializeField] public List<int> costs = new();
     [SerializeField] public List<bool> enableFlag = new();
 
-    [SerializeField] private List<GameObject> lamps = new();
+    [SerializeField] public List<GameObject> lamps = new();
     public int indexLamp = 0;
-   
+
+    [SerializeField] private ChangeLamp changeLamp;
     [SerializeField] private Button rightBut;
     [SerializeField] private Button leftBut;
     [SerializeField] private GameObject baseLamp;
@@ -18,12 +20,13 @@ public class ChangeLamp : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < lamps.Count; i++)
+        for (int i = 0; i < YandexGame.savesData.openLevels.Length; i++)
         {
             buyButton.SetActive(true);
             lamps[i].SetActive(false);
             lamps[i].GetComponent<TouchControl>().enabled = false;
             lamps[i].GetComponent<BoxCollider>().enabled = false;
+
         }
         buyButton.SetActive(false);
         lamps[indexLamp].SetActive(true);
@@ -35,8 +38,9 @@ public class ChangeLamp : MonoBehaviour
     {
     	lamps[indexLamp].SetActive(true);
 
-        if (!enableFlag[indexLamp])
+        if (!YandexGame.savesData.openLevels[changeLamp.indexLamp])
         {
+            Debug.Log("false");
             buyButton.SetActive(true);
             costLabel.text = costs[indexLamp].ToString();
             lamps[indexLamp].GetComponent<Image>().color = Color.black;
@@ -44,6 +48,7 @@ public class ChangeLamp : MonoBehaviour
         }
         else
         {
+            Debug.Log("true");
             buyButton.SetActive(false);
             lamps[indexLamp].GetComponent<TouchControl>().enabled = true;
             lamps[indexLamp].GetComponent<BoxCollider>().enabled = true;

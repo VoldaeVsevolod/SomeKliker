@@ -1232,6 +1232,7 @@ MonoBehaviour:
   - {fileID: 771249409}
   - {fileID: 242331886}
   indexLamp: 0
+  changeLamp: {fileID: 706821667}
   rightBut: {fileID: 302610757}
   leftBut: {fileID: 145817158}
   baseLamp: {fileID: 166335150}

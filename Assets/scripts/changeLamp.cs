@@ -34,21 +34,20 @@ public class ChangeLamp : MonoBehaviour
         lamps[indexLamp].GetComponent<BoxCollider>().enabled = true;
     }
 
-    private void Change() 
+    public void Change() 
     {
     	lamps[indexLamp].SetActive(true);
 
         if (!YandexGame.savesData.openLevels[changeLamp.indexLamp])
         {
-            Debug.Log("false");
             buyButton.SetActive(true);
             costLabel.text = costs[indexLamp].ToString();
             lamps[indexLamp].GetComponent<Image>().color = Color.black;
             baseLamp.GetComponent<Image>().color = Color.black;
+
         }
         else
         {
-            Debug.Log("true");
             buyButton.SetActive(false);
             lamps[indexLamp].GetComponent<TouchControl>().enabled = true;
             lamps[indexLamp].GetComponent<BoxCollider>().enabled = true;

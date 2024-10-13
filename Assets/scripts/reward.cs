@@ -9,7 +9,6 @@ public class Reward : MonoBehaviour
     [SerializeField] private lampsControl lampsControl;
     [SerializeField] private ChangeLamp changeLamp;
     public Button but;
-    public int countDown = 5;
 
     public void RewardedAd()
     {
@@ -19,6 +18,7 @@ public class Reward : MonoBehaviour
     public void RewardedAdCul()
     {
         lampsControl.lampsList[changeLamp.indexLamp].addCoins *= 2;
+        YandexGame.savesData.addCoins *= 2;
         Debug.Log(lampsControl.lampsList[changeLamp.indexLamp].addCoins);
         StartCoroutine(ButtonCooldown());
     }

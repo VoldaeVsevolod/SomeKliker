@@ -9,7 +9,7 @@ public class ChangeLamp : MonoBehaviour
     [SerializeField] public List<bool> enableFlag = new();
 
     [SerializeField] public List<GameObject> lamps = new();
-    public int indexLamp = 0;
+    public int indexLamp = -1;
 
     [SerializeField] private ChangeLamp changeLamp;
     [SerializeField] private Button rightBut;
@@ -20,6 +20,13 @@ public class ChangeLamp : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(indexLamp);
+        //—читаем последнюю купленную лампу, чтобы показать еЄ
+        for(int j = 0; j < YandexGame.savesData.openLevels.Length; j++)
+        {
+            if (YandexGame.savesData.openLevels[j]) indexLamp++;
+        }
+
         for (int i = 0; i < YandexGame.savesData.openLevels.Length; i++)
         {
             buyButton.SetActive(true);
@@ -38,7 +45,7 @@ public class ChangeLamp : MonoBehaviour
     {
     	lamps[indexLamp].SetActive(true);
 
-        if (!YandexGame.savesData.openLevels[changeLamp.indexLamp])
+        if (!YandexGame.savesData.openLevels[indexLamp])
         {
             buyButton.SetActive(true);
             costLabel.text = costs[indexLamp].ToString();

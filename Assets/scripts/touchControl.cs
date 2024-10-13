@@ -61,18 +61,21 @@ public class TouchControl : MonoBehaviour
             lamp.position += Vector3.down;
             flag = true;
         }
-        coins += addCoins;
+        YandexGame.savesData.coins += YandexGame.savesData.addCoins;
         clickNum++;
+        YandexGame.SaveProgress();
     }
 
     public void Update()
     {
-        if(clickNum == 5)
+        /*if(clickNum == 5)
         {
             MySave();
             clickNum = 0;
-        }
+        }*/
 
-        coinsText.text = coins.ToString();
+
+        if(coins >= 100000) coinsText.text = (coins / 1000).ToString() + "K";
+        coinsText.text = YandexGame.savesData.coins.ToString();
     }
 }

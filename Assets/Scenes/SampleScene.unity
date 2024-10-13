@@ -1231,7 +1231,7 @@ MonoBehaviour:
   - {fileID: 1577193189}
   - {fileID: 771249409}
   - {fileID: 242331886}
-  indexLamp: 0
+  indexLamp: -1
   changeLamp: {fileID: 706821667}
   rightBut: {fileID: 302610757}
   leftBut: {fileID: 145817158}
@@ -1710,7 +1710,6 @@ MonoBehaviour:
   lampsControl: {fileID: 1642338722}
   changeLamp: {fileID: 706821667}
   but: {fileID: 1051086763}
-  countDown: 5
 --- !u!1 &1544673398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2063,7 @@ MonoBehaviour:
   - {fileID: 1577193192}
   - {fileID: 771249412}
   - {fileID: 242331889}
+  addMoneyList: 01000000050000000a000000320000004b000000
   changeLamp: {fileID: 706821667}
   buyButton: {fileID: 1544673398}
 --- !u!1 &1699670692

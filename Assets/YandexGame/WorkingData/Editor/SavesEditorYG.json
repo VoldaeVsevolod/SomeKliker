@@ -1,16 +1,16 @@
 {
-    "idSave": 3,
+    "idSave": 125,
     "isFirstSession": true,
     "language": "ru",
     "promptDone": false,
-    "coins": 1000,
-    "addCoins": 15,
+    "coins": 0,
+    "addCoins": 1,
     "indexLamp": 0,
     "openLevels": [
+        true,
         false,
         false,
-        true,
-        true,
+        false,
         false
     ]
 }

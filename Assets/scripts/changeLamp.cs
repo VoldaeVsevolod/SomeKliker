@@ -20,7 +20,6 @@ public class ChangeLamp : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(indexLamp);
         //—читаем последнюю купленную лампу, чтобы показать еЄ
         for(int j = 0; j < YandexGame.savesData.openLevels.Length; j++)
         {
@@ -51,7 +50,8 @@ public class ChangeLamp : MonoBehaviour
             costLabel.text = costs[indexLamp].ToString();
             lamps[indexLamp].GetComponent<Image>().color = Color.black;
             baseLamp.GetComponent<Image>().color = Color.black;
-
+            lamps[indexLamp].GetComponent<TouchControl>().enabled = false;
+            lamps[indexLamp].GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
@@ -64,7 +64,10 @@ public class ChangeLamp : MonoBehaviour
 
     public void RightClick()
     {
+        lamps[indexLamp].GetComponent<TouchControl>().enabled = false;
+        lamps[indexLamp].GetComponent<BoxCollider>().enabled = false;
         lamps[indexLamp].SetActive(false);
+
 
         if (indexLamp < lamps.Count-1)
         {
@@ -79,7 +82,10 @@ public class ChangeLamp : MonoBehaviour
 
     public void LeftClick()
     {
+        lamps[indexLamp].GetComponent<TouchControl>().enabled = false;
+        lamps[indexLamp].GetComponent<BoxCollider>().enabled = false;
         lamps[indexLamp].SetActive(false);
+
         if (indexLamp > 0)
         {
             indexLamp--;

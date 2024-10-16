@@ -11,10 +11,10 @@
 
         // Ваши сохранения
 
-        public int coins = 0;
+        public float coins = 0;
         public int addCoins = 1;
         public int indexLamp = -1;
-        public bool[] openLevels = new bool[5];
+        public bool[] openLevels = new bool[9];
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

@@ -36,7 +36,7 @@ MonoBehaviour:
   flush: 1
   localSaveSync: 0
   saveCloudInterval: 5
-  saveOnQuitGame: 1
+  saveOnQuitGame: 0
   quitGameParameters:
     objectName: YandexGame
     methodName: _SaveProgress

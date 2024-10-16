@@ -18,7 +18,6 @@ public class Reward : MonoBehaviour
     public void RewardedAdCul()
     {
         lampsControl.lampsList[changeLamp.indexLamp].addCoins *= 2;
-        YandexGame.savesData.addCoins *= 2;
         Debug.Log(lampsControl.lampsList[changeLamp.indexLamp].addCoins);
         StartCoroutine(ButtonCooldown());
     }
@@ -26,7 +25,10 @@ public class Reward : MonoBehaviour
     IEnumerator ButtonCooldown()
     {
         but.interactable = false;
+        YandexGame.savesData.addCoins *= 2;
         yield return new WaitForSeconds(30);
+        YandexGame.savesData.addCoins /= 2;
+        YandexGame.SaveProgress();
         but.interactable = true;
     }
 }

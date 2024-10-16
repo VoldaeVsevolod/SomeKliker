@@ -11,7 +11,7 @@ public class lampsControl : MonoBehaviour
 
     public void BuyButton()
     {
-        if (YandexGame.savesData.coins >= lampsList[changeLamp.indexLamp].coins)
+        if (YandexGame.savesData.coins >= changeLamp.costs[changeLamp.indexLamp])
         {
             //Отнимаем монеты
             YandexGame.savesData.coins -= changeLamp.costs[changeLamp.indexLamp];
@@ -23,7 +23,7 @@ public class lampsControl : MonoBehaviour
             lampsList[changeLamp.indexLamp].baseLampImage.color = Color.white;
             changeLamp.lamps[changeLamp.indexLamp].GetComponent<TouchControl>().enabled = true;
             changeLamp.lamps[changeLamp.indexLamp].GetComponent<BoxCollider>().enabled = true;
-            YandexGame.savesData.addCoins = addMoneyList[changeLamp.indexLamp];
+            YandexGame.savesData.addCoins += addMoneyList[changeLamp.indexLamp];
 
             //Удаляем кнопку покупки
             buyButton.SetActive(false);

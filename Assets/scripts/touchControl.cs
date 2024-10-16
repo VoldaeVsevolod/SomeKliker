@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,9 +12,10 @@ public class TouchControl : MonoBehaviour
     [SerializeField] private Text coinsText;
     [SerializeField] private Text textBuyButton;
     [SerializeField] private GameObject buyButton;
+    [SerializeField] private Text addMoneyText;
 
     private int clickNum;
-    public int coins = 1;
+    public float coins = 1;
     public int addCoins = 15;
     private bool flag = true;
     
@@ -68,14 +70,12 @@ public class TouchControl : MonoBehaviour
 
     public void Update()
     {
-        /*if(clickNum == 5)
-        {
-            MySave();
-            clickNum = 0;
-        }*/
-
-
-        if(coins >= 100000) coinsText.text = (coins / 1000).ToString() + "K";
-        coinsText.text = YandexGame.savesData.coins.ToString();
+        //Math.Round(YandexGame.savesData.coins/1000, 3, MidpointRounding.AwayFromZero)
+        if (YandexGame.savesData.coins >= 1000) coinsText.text =
+                Math.Round(YandexGame.savesData.coins / 1000, 2, MidpointRounding.AwayFromZero).ToString() + "K";
+        if (YandexGame.savesData.coins >= 10000) coinsText.text =
+                Math.Round(YandexGame.savesData.coins / 1000, 1, MidpointRounding.AwayFromZero).ToString() + "K";
+        else coinsText.text = YandexGame.savesData.coins.ToString();
+        addMoneyText.text = YandexGame.savesData.addCoins.ToString() + "    / клик";
     }
 }

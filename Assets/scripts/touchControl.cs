@@ -47,6 +47,8 @@ public class TouchControl : MonoBehaviour
         YandexGame.SaveProgress();
     }
 
+
+
     public void OnMouseDown()
     {
         if (flag)
@@ -70,6 +72,12 @@ public class TouchControl : MonoBehaviour
 
     public void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnMouseDown();
+        }
+
         //Math.Round(YandexGame.savesData.coins/1000, 3, MidpointRounding.AwayFromZero)
         if (YandexGame.savesData.coins >= 1000) coinsText.text =
                 Math.Round(YandexGame.savesData.coins / 1000, 2, MidpointRounding.AwayFromZero).ToString() + "K";
